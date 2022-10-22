@@ -1,13 +1,17 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.game-area{
+  position: relative;
+  margin: 50px auto;
+  width: 600px;
+  height: 600px;
+  border: 2px solid #000;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.snake-dot{
+  position: absolute;
+  /* percents of the parent div (600X600px) so 50 cells in each row/column */
+  width: 2%;
+  height: 2%;
+  background-color: #000;
+  /* so each cube looks separate */
+  border: 1px solid #fff;
 }
