@@ -26,6 +26,7 @@ class App extends Component {
   componentDidUpdate(){
     this.checkIfOutOfBorders();
     this.checkIfCollapsed(); 
+    this.checkIfEat();
   }
 
   onKeyDown = (e) => {
@@ -87,7 +88,32 @@ class App extends Component {
         this.onGameOver()
       }
     })
+  }
 
+  checkIfEat(){
+    let head = this.state.snakeDots[this.state.snakeDots.length - 1];
+    let food = this.state.food;
+    if (head[0] == food[0] && head[1] == food[1]){
+      this.setState({food: GetRandomCoordinates()})
+      this.enlargeSnake()
+      this.increaseSpeed( )
+    }
+  }
+
+  enlargeSnake(){
+    let newSnake = [...this.state.snakeDots];
+    newSnake.unshift([])
+    this.setState({
+      snakeDots: newSnake
+    })
+  }
+
+  increaseSpeed(){
+    if(this.state.speed > 10){
+      this.setState({
+        speed: this.state.speed - 10
+      })
+    }
   }
 
   onGameOver(){
