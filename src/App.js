@@ -1,14 +1,30 @@
 import { Component } from "react";
-import Snake from "./components/Snake";
-import Food from "./components/Food";
-import GetRandomCoordinates from "./utils/GetRandomCoordinates";
-import Gameplay from "./Gameplay";
+import GameOver from "./components/GameOver";
+import Gameplay from "./components/Gameplay";
+import OpeningScreen from "./components/OpeningScreen";
 
 class App extends Component {
 
+  state = ({
+    isGameOver: false,
+    isFirstGame: true,
+    isPlaying: false
+  })
+
+  handleStartGame = () => {
+    this.setState({
+      isFirstGame: false,
+      isPlaying: true
+    })
+  }
+
  render() {
   return (
-      <Gameplay/>
+    <div>
+        {this.state.isGameOver ? <GameOver/> : null}
+        {this.state.isFirstGame ? <OpeningScreen handleStartGame={this.handleStartGame}/> : null}
+        {this.state.isPlaying ? <Gameplay/> : null}
+    </div>
     );
   }
 }
