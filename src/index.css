@@ -1,9 +1,12 @@
+body{
+  background-color: black;
+}
 .game-area{
   position: relative;
   margin: 50px auto;
   width: 600px;
   height: 600px;
-  border: 2px solid #000;
+  border: 2px solid #fff;
 }
 
 .snake-dot{
@@ -11,9 +14,9 @@
   /* percents of the parent div (600X600px) so 50 cells in each row/column */
   width: 2%;
   height: 2%;
-  background-color: #000;
+  background-color: #fff;
   /* so each cube looks separate */
-  border: 1px solid #fff;
+  border: 1px solid #000;
   z-index: 2;
 }
 
@@ -21,7 +24,7 @@
   position: absolute;
   width: 2%;
   height: 2%;
-  background-color: red;
-  border: 1px solid #fff;
+  background-color: rgb(47, 255, 89);
+  border: 1px solid #000;
   z-index: 1;
 }

@@ -4,7 +4,6 @@ import Food from "./components/Food";
 import GetRandomCoordinates from "./utils/GetRandomCoordinates";
 import Gameplay from "./Gameplay";
 
-
 class App extends Component {
 
  render() {
