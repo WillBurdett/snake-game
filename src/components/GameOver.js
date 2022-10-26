@@ -1,6 +1,6 @@
 const GameOver = () => {
     return(
-        <div>
+        <div className="game-area">
         </div>
     )
 }
