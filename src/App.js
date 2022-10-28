@@ -8,7 +8,7 @@ class App extends Component {
   state = ({
     isGameOver: false,
     isFirstGame: true,
-    isPlaying: false
+    isPlaying: false,
   })
 
   handleStartGame = () => {

@@ -11,7 +11,7 @@ const initialState = {
     [0,0],
     [2,0]
   ],
-  speed: 500 
+  speed: 300 
 }
 
 class Gameplay extends Component {
