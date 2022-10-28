@@ -35,9 +35,9 @@ const OpeningScreen = ({handleStartGame}) => {
             let head = dots[dots.length -1];
             if (head[0] > 0 && head[1] == 98){
                 moveSnake("LEFT")
-            } else if (head[0] == 100 && head[1] <= 96){
+            } else if (head[0] == 98 && head[1] < 98){
                 moveSnake("DOWN")
-            } else if(head[0] == 0 && head[1] < 96){
+            } else if(head[0] == 0 && head[1] > 0){
                 moveSnake("UP")
             } else if (head[0] < 98 && head[1] == 0){
                 moveSnake("RIGHT")

@@ -47,7 +47,7 @@ body{
 .start-game--content{
   position: relative;
   text-align: center;
-  border: solid yellow 3px;
+  border: solid 2px rgb(47, 255, 89);
   padding: 4em;
 }
 
