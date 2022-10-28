@@ -46,6 +46,8 @@ body{
 
 .start-game--content{
   text-align: center;
+  border: solid yellow 3px;
+  padding: 4em;
 }
 
 .start-game--btn{
