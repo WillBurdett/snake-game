@@ -9,7 +9,6 @@ class App extends Component {
     isGameOver: false,
     isFirstGame: true,
     isPlaying: false,
-    openingSnakeDots: [[0,0], [0,2]]
   })
 
   handleStartGame = () => {
@@ -23,7 +22,7 @@ class App extends Component {
   return (
     <div>
         {this.state.isGameOver ? <GameOver/> : null}
-        {this.state.isFirstGame ? <OpeningScreen openingSnakeDots={this.state.openingSnakeDots} handleStartGame={this.handleStartGame}/> : null}
+        {this.state.isFirstGame ? <OpeningScreen handleStartGame={this.handleStartGame}/> : null}
         {this.state.isPlaying ? <Gameplay/> : null}
     </div>
     );
