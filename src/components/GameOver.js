@@ -7,7 +7,7 @@ const GameOver = () => {
                          <h2>Game Over!</h2>
                      </div>
                      <div className="game-over--score">
-                         <p>You scored: </p>
+                         <p>You scored {JSON.parse(localStorage.getItem('last-score'))} </p>
                      </div>
                 </div>   
             </div>

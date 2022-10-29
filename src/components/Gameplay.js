@@ -116,9 +116,15 @@ class Gameplay extends Component {
     }
   }
 
+  handleScore = () => {
+    localStorage.setItem('last-score', JSON.stringify(this.state.snakeDots.length));
+  };
+  
+
   onGameOver(){
     // alert(`Game Over! You scored ${this.state.snakeDots.length}`);
     // this.resetGame()
+    this.handleScore()
     this.props.handleGameOver()
   }
 
