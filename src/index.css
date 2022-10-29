@@ -37,6 +37,20 @@ body{
   align-items: center;
 }
 
+.game-over--title{
+  font-size: 2rem;
+  color: red;
+}
+.game-over--score{
+  font-size: 1rem;
+  color: white;
+}
+
+.game-over--content{
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+}
+
 .start-game--title{
   font-size: 4rem;
   color: white;
@@ -70,3 +84,4 @@ body{
   cursor: pointer;
   transform: scale(1.1);
 }
+

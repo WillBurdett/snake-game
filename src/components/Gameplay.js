@@ -117,8 +117,9 @@ class Gameplay extends Component {
   }
 
   onGameOver(){
-    alert(`Game Over! You scored ${this.state.snakeDots.length}`);
-    this.resetGame()
+    // alert(`Game Over! You scored ${this.state.snakeDots.length}`);
+    // this.resetGame()
+    this.props.handleGameOver()
   }
 
   resetGame(){
