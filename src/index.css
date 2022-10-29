@@ -51,6 +51,10 @@ body{
   font-family: 'Press Start 2P', cursive;
 }
 
+.last-score{
+  color: rgb(47, 255, 89);;
+}
+
 .start-game--title{
   font-size: 4rem;
   color: white;
