@@ -116,9 +116,32 @@ class Gameplay extends Component {
     }
   }
 
+  handleScore = () => {
+    localStorage.setItem('last-score', JSON.stringify(this.state.snakeDots.length));
+    if (this.storageIsEmpty('last-score')){
+      console.log('new highscore!')
+      localStorage.setItem('high-score', JSON.stringify(this.state.snakeDots.length));
+    } else if (JSON.parse(localStorage.getItem('high-score')) < this.state.snakeDots.length){
+      console.log('new highscore!')
+      localStorage.setItem('high-score', JSON.stringify(this.state.snakeDots.length));
+    }
+  };
+
+  storageIsEmpty = key => {
+    const storedData = localStorage.getItem(key);
+    if (!storedData) {
+      console.log('Local storage is empty');
+      return true
+    } 
+  }
+
+  
+
   onGameOver(){
-    alert(`Game Over! You scored ${this.state.snakeDots.length}`);
-    this.resetGame()
+    // alert(`Game Over! You scored ${this.state.snakeDots.length}`);
+    // this.resetGame()
+    this.handleScore()
+    this.props.handleGameOver()
   }
 
   resetGame(){
