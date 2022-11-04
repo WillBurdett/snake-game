@@ -1,6 +1,8 @@
 import { Component } from "react";
 import GameOver from "./components/GameOver";
+import GamePage from "./components/GamePage";
 import Gameplay from "./components/Gameplay";
+import Leaderboard from "./components/Leaderboard";
 import OpeningScreen from "./components/OpeningScreen";
 
 class App extends Component {
@@ -35,10 +37,10 @@ class App extends Component {
 
  render() {
   return (
-    <div>
+    <div className="landing-page-container">
         {this.state.isGameOver ? <GameOver handleRestart={this.handleRestart} /> : null}
         {this.state.isFirstGame ? <OpeningScreen handleStartGame={this.handleStartGame}/> : null}
-        {this.state.isPlaying ? <Gameplay handleGameOver={this.handleGameOver}/> : null}
+        {this.state.isPlaying ? <GamePage handleGameOver={this.handleGameOver}/> : null}
     </div>
     );
   }

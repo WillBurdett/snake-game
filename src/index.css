@@ -1,12 +1,22 @@
 body{
   background-color: black;
 }
+
+.landing-page-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
 .game-area{
   position: relative;
-  margin: 50px auto;
+  /* margin: 50px auto; */
   width: 600px;
+  min-width: 600px;
   height: 600px;
+  min-height: 600px;
   border: 2px solid #fff;
+  display: flex;
+  justify-content: center;
 }
 
 .snake-dot{
@@ -87,5 +97,20 @@ body{
   background-color: #4CAF50;
   cursor: pointer;
   transform: scale(1.1);
+}
+
+.leaderboard-container{
+  border: solid 2px yellow;
+  /* margin-left: auto; */
+  width: 300px;
+  min-width: 300px;
+  height: 600px;
+  min-height: 600px;
+}
+
+.gamepage-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
