@@ -108,9 +108,16 @@ body{
   min-height: 600px;
 }
 
-.gamepage-container{
+.gamescreen-container{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+@media (max-width:940px){
+  .leaderboard-container{
+    width: 600px;
+    min-width: 600px;
+  }
 }
 
