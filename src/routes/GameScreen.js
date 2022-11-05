@@ -1,5 +1,5 @@
-import Gameplay from "./Gameplay"
-import Leaderboard from "./Leaderboard"
+import Gameplay from "../components/Gameplay"
+import Leaderboard from "../components/Leaderboard"
 
 const GameScreen = ({handleGameOver}) => {
     return(

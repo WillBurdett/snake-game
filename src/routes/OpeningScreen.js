@@ -1,4 +1,4 @@
-import TitleAnimation from "./TitleAnimation";
+import TitleAnimation from "../components/TitleAnimation";
 
 const OpeningScreen = ({handleStartGame}) => {
 
