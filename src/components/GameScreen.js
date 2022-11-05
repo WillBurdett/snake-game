@@ -1,7 +1,7 @@
 import Gameplay from "./Gameplay"
 import Leaderboard from "./Leaderboard"
 
-const GamePage = ({handleGameOver}) => {
+const GameScreen = ({handleGameOver}) => {
     return(
         <div className="gamepage-container">
             <Gameplay handleGameOver={handleGameOver}/>
@@ -10,4 +10,4 @@ const GamePage = ({handleGameOver}) => {
     )
 }
 
-export default GamePage
+export default GameScreen

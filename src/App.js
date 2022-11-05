@@ -1,6 +1,6 @@
 import { Component } from "react";
 import GameOver from "./components/GameOver";
-import GamePage from "./components/GamePage";
+import GamePage from "./components/GameScreen";
 import Gameplay from "./components/Gameplay";
 import Leaderboard from "./components/Leaderboard";
 import OpeningScreen from "./components/OpeningScreen";
