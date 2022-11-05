@@ -108,7 +108,7 @@ body{
   min-height: 600px;
 }
 
-.gamepage-container{
+.gamescreen-container{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
