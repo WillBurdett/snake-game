@@ -19,6 +19,15 @@ body{
   justify-content: center;
 }
 
+.basic-font{
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+}
+
+.text-center{
+  text-align: center;
+}
+
 .snake-dot{
   position: absolute;
   /* percents of the parent div (600X600px) so 50 cells in each row/column */
@@ -109,16 +118,16 @@ body{
 }
 
 .sidebar-container h4{
-  text-align: center;
-  font-family: 'Press Start 2P', cursive;
   font-size: 1rem;
-  color: white;
 }
 
 .content-container{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+.individual-score{
+  font-size: 1rem;
 }
 
 @media (max-width:940px){

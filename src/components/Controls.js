@@ -1,7 +1,7 @@
 const Controls= () => {
     return (
         <div className="sidebar-container">
-            <h4>Controls</h4>
+            <h4 className="basic-font text-center">Controls</h4>
         </div>
     )
 }
