@@ -1,10 +1,12 @@
+import Controls from "../components/Controls";
 import TitleAnimation from "../components/TitleAnimation";
 
 const OpeningScreen = ({handleStartGame}) => {
 
   return(
-    <div>
+    <div className="content-container">
       <TitleAnimation handleStartGame={handleStartGame}/>
+      <Controls/>
     </div>
   )
  

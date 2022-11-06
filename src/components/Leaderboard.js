@@ -1,6 +1,7 @@
 const Leaderboard = () => {
     return (
-        <div className="leaderboard-container">
+        <div className="sidebar-container">
+            <h4>Highscores</h4>
         </div>
     )
 }

@@ -99,7 +99,7 @@ body{
   transform: scale(1.1);
 }
 
-.leaderboard-container{
+.sidebar-container{
   border: solid 2px yellow;
   /* margin-left: auto; */
   width: 300px;
@@ -108,14 +108,21 @@ body{
   min-height: 600px;
 }
 
-.gamescreen-container{
+.sidebar-container h4{
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  color: white;
+}
+
+.content-container{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 @media (max-width:940px){
-  .leaderboard-container{
+  .sidebar-container{
     width: 600px;
     min-width: 600px;
   }
