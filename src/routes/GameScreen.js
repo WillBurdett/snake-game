@@ -25,7 +25,7 @@ class GameScreen extends Component {
 
     render (){
         return(
-            <div className="gamescreen-container">
+            <div className="content-container">
                 {this.state.isPlaying ? <Gameplay handleGameOver={this.handleGameOver} /> : null}
                 {this.state.isGameOver ? <GameOver handleRestart={this.handleRestart}/> : null}
                 <Leaderboard/>

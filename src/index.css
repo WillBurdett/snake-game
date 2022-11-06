@@ -19,6 +19,15 @@ body{
   justify-content: center;
 }
 
+.basic-font{
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+}
+
+.text-center{
+  text-align: center;
+}
+
 .snake-dot{
   position: absolute;
   /* percents of the parent div (600X600px) so 50 cells in each row/column */
@@ -99,7 +108,7 @@ body{
   transform: scale(1.1);
 }
 
-.leaderboard-container{
+.sidebar-container{
   border: solid 2px yellow;
   /* margin-left: auto; */
   width: 300px;
@@ -108,14 +117,21 @@ body{
   min-height: 600px;
 }
 
-.gamescreen-container{
+.sidebar-container h4{
+  font-size: 1rem;
+}
+
+.content-container{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
+.individual-score{
+  font-size: 1rem;
+}
 
 @media (max-width:940px){
-  .leaderboard-container{
+  .sidebar-container{
     width: 600px;
     min-width: 600px;
   }
