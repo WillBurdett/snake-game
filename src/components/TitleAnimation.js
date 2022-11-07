@@ -56,8 +56,8 @@ const moveSnake = (dir) => {
             <div className="container">
                 <div className="start-game--content">
                     <Snake snakeDots={openingSnakeDots}/>
-                    <h2 className="start-game--title">Snake</h2>
-                    <button className="start-game--btn" onClick={handleStartGame}>Start game!</button>
+                    <h2 className="start-game--title basic-font text-center">Snake</h2>
+                    <button className="start-game--btn basic-font text-center" onClick={handleStartGame}>Start game!</button>
                 </div>
             </div>
         </div>
