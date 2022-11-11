@@ -44,7 +44,6 @@ const moveSnake = (dir) => {
       }
       const timer = setInterval(() => {
           updateSnakeMovement()
-          console.log(openingSnakeDots)
       }, 200);
       return () => clearInterval(timer);
     }, [moveSnake, openingSnakeDots]);
@@ -57,7 +56,7 @@ const moveSnake = (dir) => {
                 <div className="start-game--content">
                     <Snake snakeDots={openingSnakeDots}/>
                     <h2 className="start-game--title basic-font text-center">Snake</h2>
-                    <button className="start-game--btn basic-font text-center" onClick={handleStartGame}>Start game!</button>
+                    <button className="start-game--btn hover-green basic-font text-center" onClick={handleStartGame}>Start game!</button>
                 </div>
             </div>
         </div>
