@@ -63,6 +63,7 @@ body{
 .game-over--score{
   font-size: 1rem;
   color: white;
+  margin-bottom: 4em;
 }
 
 .last-score{
@@ -90,7 +91,7 @@ body{
   text-transform: uppercase;
 }
 
-.start-game--btn:hover{
+.hover-green:hover{
   background-color: #4CAF50;
   cursor: pointer;
   transform: scale(1.1);
@@ -116,6 +117,12 @@ body{
 }
 .individual-score{
   font-size: 1rem;
+}
+.restart--container{
+  color: white;
+  border: solid white 2px;
+  margin-left: 7em;
+  margin-right: 7em;
 }
 
 @media (max-width:940px){
