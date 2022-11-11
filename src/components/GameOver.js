@@ -10,7 +10,7 @@ const GameOver = ({handleRestart}) => {
                      <div className="game-over--score">
                          <p>You scored <span className="last-score">{JSON.parse(localStorage.getItem('last-score'))}</span> </p>
                      </div>
-                    <div onClick={handleRestart} class="restart--container hover-green text-center basic-font">      
+                    <div onClick={handleRestart} className="restart--container hover-green text-center basic-font">      
                         <h4>Restart  <VscDebugRestart/></h4>            
                     </div>
                 </div>   

@@ -44,7 +44,6 @@ const moveSnake = (dir) => {
       }
       const timer = setInterval(() => {
           updateSnakeMovement()
-          console.log(openingSnakeDots)
       }, 200);
       return () => clearInterval(timer);
     }, [moveSnake, openingSnakeDots]);
