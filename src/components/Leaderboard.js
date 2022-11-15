@@ -6,7 +6,7 @@ const Leaderboard = () => {
     const dataFetchedRef = useRef(false);
 
     const getAllUsers = () => {
-        fetch("http://localhost:8080/")
+        fetch("http://localhost:8080/leaderboard")
         .then(response => response.json())
         .then(users => {
             const newUsersArray = [];
