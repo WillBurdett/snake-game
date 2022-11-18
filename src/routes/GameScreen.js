@@ -1,7 +1,6 @@
 import { Component } from "react"
 import GameOver from "../components/GameOver"
 import Gameplay from "../components/Gameplay"
-import Leaderboard from "../components/Leaderboard"
 import Scores from "../components/Scores"
 
 class GameScreen extends Component {
@@ -12,19 +11,19 @@ class GameScreen extends Component {
       })
 
       handleGameOver = () => {
-        this.forceUpdate();
         this.setState({
           isPlaying: false,
           isGameOver: true
         })
+        this.getAllUsers()
       }
     
       handleRestart = () => {
-        this.forceUpdate();
         this.setState({
           isPlaying: true,
           isGameOver: false
         })
+        this.getAllUsers()
       }
 
       getAllUsers = () => {
@@ -37,8 +36,8 @@ class GameScreen extends Component {
           }
             this.setState({allUsers: newUsersArray})
           })
-            .then(e => console.log(this.state.allUsers))
-            .catch(error => console.error(error))
+        .then(c => console.log(this.state.allUsers))  
+        .catch(error => console.error(error))
         }
 
         componentDidMount(){
@@ -52,7 +51,11 @@ class GameScreen extends Component {
             <div className="content-container">
                 {this.state.isPlaying ? <Gameplay handleGameOver={this.handleGameOver} /> : null}
                 {this.state.isGameOver ? <GameOver handleRestart={this.handleRestart}/> : null}
-                <Leaderboard allUsers={this.state.allUsers}/>
+                {this.state.allUsers == null ? null : 
+                <div className="sidebar-container">
+                  <h4 className="basic-font text-center">Highscores</h4>
+                  <Scores allUsers={this.state.allUsers}/>
+                </div>}
             </div>
     )}
 }

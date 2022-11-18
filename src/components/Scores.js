@@ -1,18 +1,22 @@
-import { Component } from "react"
+import {useEffect} from 'react'
+const Scores = ({allUsers}) => {
 
-class Scores extends Component {
-    render(){
+    useEffect(() => {
+        // console.log("Scores component updated")
+        // console.log(allUsers)
+    }, [allUsers])
+
     return (
         <div>
-            {this.props.users.map((u, i)=>{
+            {allUsers.map((u, i)=>{
            return (
-            <div className="individual-score-container" key={this.props.users}>
+            <div className="individual-score-container" key={i}>
                 <h5 className="individual-score basic-font text-center">{i+1}. {u.username} {u.score}</h5>
             </div>
         )
         })}
         </div>
-    )}
+    )
 }
 
 export default Scores
