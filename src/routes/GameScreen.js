@@ -36,7 +36,8 @@ class GameScreen extends Component {
           }
             this.setState({allUsers: newUsersArray})
           })
-            .catch(error => console.error(error))
+        .then(c => console.log(this.state.allUsers))  
+        .catch(error => console.error(error))
         }
 
         componentDidMount(){

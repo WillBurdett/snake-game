@@ -116,10 +116,8 @@ class Gameplay extends Component {
     }
   }
 
-  handleScore = () => {
+  handleScore = async() => {
     localStorage.setItem('last-score', JSON.stringify(this.state.snakeDots.length));
-    // submit score via post request (userid hard-coded for now)
-    this.submitScore(1, this.state.snakeDots.length)
 
     if (this.storageIsEmpty('last-score')){
       console.log('new highscore!')
@@ -128,20 +126,8 @@ class Gameplay extends Component {
       console.log('new highscore!')
       localStorage.setItem('high-score', JSON.stringify(this.state.snakeDots.length));
     }
+    return true
   };
-
-  submitScore = (userId, score) => {
-      fetch("http://localhost:8080/" + userId + "/" + score, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json", 
-        }  
-    })
-    .then(response => {if(!response.ok) throw new Error(response.status);})
-    // .then(d => getLeaderboard()) -- so it updates
-    // .then(s => handleWasSuccess())
-    .catch((error) => console.log(error));
-  }
 
   storageIsEmpty = key => {
     const storedData = localStorage.getItem(key);
@@ -151,9 +137,19 @@ class Gameplay extends Component {
     } 
   }
 
-  onGameOver(){
-    this.handleScore()
-    this.props.handleGameOver()
+  async onGameOver(){
+    const validScore = await this.handleScore()
+    if (validScore)
+    {await fetch("http://localhost:8080/" + 1 + "/" + this.state.snakeDots.length, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json", 
+      }  
+    })
+      .then(response => {if(!response.ok) throw new Error(response.status);})
+      .then(t => this.props.handleGameOver())
+      .catch((error) => console.log(error));
+    }
   }
 
   resetGame(){
