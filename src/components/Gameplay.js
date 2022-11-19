@@ -11,7 +11,8 @@ const initialState = {
     [0,0],
     [2,0]
   ],
-  speed: 300 
+  speed: 300,
+  highscore: 0 
 }
 
 class Gameplay extends Component {
@@ -20,7 +21,19 @@ class Gameplay extends Component {
   componentDidMount(){
     document.onkeydown = this.onKeyDown
     setInterval(this.moveSnake, this.state.speed)
+    this.getPlayersHighscore()
   }
+
+  getPlayersHighscore(){
+    fetch("http://localhost:8080/" + 1)
+        .then(response => response.json())
+        .then(user => {
+            this.setState({highscore: user.highscore})
+          })  
+        .then(c => console.log("GET highscore of the player"))  
+        .catch(error => console.error(error))
+  }
+
 
   // called each time a components state or props are updated
   componentDidUpdate(){
@@ -96,7 +109,7 @@ class Gameplay extends Component {
     if (head[0] == food[0] && head[1] == food[1]){
       this.setState({food: GetRandomCoordinates()})
       this.enlargeSnake()
-      this.increaseSpeed( )
+      this.increaseSpeed()
     }
   }
 
@@ -117,15 +130,14 @@ class Gameplay extends Component {
   }
 
   handleScore = async() => {
+    // set item in localStorage so GameOver component can grab
     localStorage.setItem('last-score', JSON.stringify(this.state.snakeDots.length));
 
-    if (this.storageIsEmpty('last-score')){
-      console.log('new highscore!')
-      localStorage.setItem('high-score', JSON.stringify(this.state.snakeDots.length));
-    } else if (JSON.parse(localStorage.getItem('high-score')) < this.state.snakeDots.length){
-      console.log('new highscore!')
-      localStorage.setItem('high-score', JSON.stringify(this.state.snakeDots.length));
+    // if the new score beats the old highscore, do something...
+    if (this.state.highscore < this.state.snakeDots.length){
+      console.log('new highscore as old high-score was beaten!')
     }
+    console.log("handleScore did run")
     return true
   };
 
@@ -138,16 +150,20 @@ class Gameplay extends Component {
   }
 
   async onGameOver(){
+    // set local item and check to see if highscore icon display should be shown
     const validScore = await this.handleScore()
-    if (validScore)
-    {await fetch("http://localhost:8080/" + 1 + "/" + this.state.snakeDots.length, {
-    method: "POST",
-    headers: {
+    // when done, post score to see if it places on the Leaderboard
+    if (validScore){
+      await fetch("http://localhost:8080/" + 1 + "/" + this.state.snakeDots.length, {
+        method: "POST",
+        headers: {
       "Content-Type": "application/json", 
       }  
     })
-      .then(response => {if(!response.ok) throw new Error(response.status);})
+      // .then(response => {if(!response.ok) throw new Error(response.status);})
+      // once the score is posted, render the GameOver component
       .then(t => this.props.handleGameOver())
+      .then(r => this.resetGame())
       .catch((error) => console.log(error));
     }
   }
