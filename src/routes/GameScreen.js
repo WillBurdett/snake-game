@@ -8,6 +8,7 @@ class GameScreen extends Component {
         isGameOver: false,
         isPlaying: true,
         allUsers: [],
+        didBeatHighscore: false,
       })
 
       handleGameOver = () => {
@@ -25,6 +26,11 @@ class GameScreen extends Component {
         })
         this.getAllUsers()
       }
+
+      didBeatHighscore = v => {
+        v ? this.setState({didBeatHighscore: true}) : this.setState({didBeatHighscore: false})
+      }
+      
 
       getAllUsers = () => {
         fetch("http://localhost:8080/leaderboard")
@@ -49,8 +55,8 @@ class GameScreen extends Component {
     render (){
         return(
             <div className="content-container">
-                {this.state.isPlaying ? <Gameplay handleGameOver={this.handleGameOver} /> : null}
-                {this.state.isGameOver ? <GameOver handleRestart={this.handleRestart}/> : null}
+                {this.state.isPlaying ? <Gameplay handleGameOver={this.handleGameOver} didBeatHighscore={this.didBeatHighscore}/> : null}
+                {this.state.isGameOver ? <GameOver handleRestart={this.handleRestart} didBeatHighscore={this.state.didBeatHighscore}/> : null} 
                 {this.state.allUsers == null ? null : 
                 <div className="sidebar-container">
                   <h4 className="basic-font text-center">Highscores</h4>
