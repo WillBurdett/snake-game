@@ -135,9 +135,9 @@ class Gameplay extends Component {
 
     // if the new score beats the old highscore, do something...
     if (this.state.highscore < this.state.snakeDots.length){
-      console.log('new highscore as old high-score was beaten!')
+      this.props.didBeatHighscore(true)
     }
-    console.log("handleScore did run")
+    this.props.didBeatHighscore(false)
     return true
   };
 
