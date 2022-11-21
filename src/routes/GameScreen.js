@@ -3,6 +3,8 @@ import GameOver from "../components/GameOver"
 import Gameplay from "../components/Gameplay"
 import Scores from "../components/Scores"
 
+let didBeatHighscore = false;
+
 class GameScreen extends Component {
     state = ({
         isGameOver: false,
@@ -28,7 +30,8 @@ class GameScreen extends Component {
       }
 
       didBeatHighscore = v => {
-        v ? this.setState({didBeatHighscore: true}) : this.setState({didBeatHighscore: false})
+        console.log(v)
+        v ? didBeatHighscore = true : didBeatHighscore = false
       }
       
 
@@ -42,7 +45,7 @@ class GameScreen extends Component {
           }
             this.setState({allUsers: newUsersArray})
           })
-        .then(c => console.log(this.state.allUsers))  
+        // .then(c => console.log(this.state.allUsers))  
         .catch(error => console.error(error))
         }
 
@@ -56,7 +59,7 @@ class GameScreen extends Component {
         return(
             <div className="content-container">
                 {this.state.isPlaying ? <Gameplay handleGameOver={this.handleGameOver} didBeatHighscore={this.didBeatHighscore}/> : null}
-                {this.state.isGameOver ? <GameOver handleRestart={this.handleRestart} didBeatHighscore={this.state.didBeatHighscore}/> : null} 
+                {this.state.isGameOver ? <GameOver handleRestart={this.handleRestart} didBeatHighscore={didBeatHighscore}/> : null} 
                 {this.state.allUsers == null ? null : 
                 <div className="sidebar-container">
                   <h4 className="basic-font text-center">Highscores</h4>
