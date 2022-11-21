@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { VscDebugRestart } from 'react-icons/vsc';
 const GameOver = ({handleRestart, didBeatHighscore}) => {
-    useEffect(()=>{
-        console.log("didBeatHighscore value changed")
-    }, [didBeatHighscore])
+    // useEffect(()=>{
+    //     console.log("didBeatHighscore value changed")
+    // }, [didBeatHighscore])
     return(
         <div className="game-area">
             <div className="container">

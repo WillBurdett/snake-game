@@ -37,6 +37,7 @@ class Gameplay extends Component {
 
   // called each time a components state or props are updated
   componentDidUpdate(){
+    console.log("Gameplay component did update")
     this.checkIfOutOfBorders();
     this.checkIfCollapsed(); 
     this.checkIfEat();
@@ -136,6 +137,7 @@ class Gameplay extends Component {
     // if the new score beats the old highscore, do something...
     if (this.state.highscore < this.state.snakeDots.length){
       this.props.didBeatHighscore(true)
+      return true
     }
     this.props.didBeatHighscore(false)
     return true
@@ -162,6 +164,7 @@ class Gameplay extends Component {
     })
       // .then(response => {if(!response.ok) throw new Error(response.status);})
       // once the score is posted, render the GameOver component
+      // .then(r => this.resetGame())
       .then(t => this.props.handleGameOver())
       .then(r => this.resetGame())
       .catch((error) => console.log(error));
