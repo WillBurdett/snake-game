@@ -125,6 +125,25 @@ body{
   margin-right: 7em;
 }
 
+.new-highscore{
+  position: relative;
+  top: 50%;
+  animation: zoom-in-zoom-out 2s ease infinite;
+  color: gold;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1) translateY(-50%);
+  }
+  50% {
+    transform: scale(1.2, 1.2) translateY(-50%);
+  }
+  100% {
+    transform: scale(1, 1) translateY(-50%);
+  }
+}
+
 @media (max-width:940px){
   .sidebar-container{
     width: 600px;
