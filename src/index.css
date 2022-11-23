@@ -14,7 +14,7 @@ body{
   min-width: 600px;
   height: 600px;
   min-height: 600px;
-  border: 2px solid #fff;
+  border:4px solid #fff;
   display: flex;
   justify-content: center;
 }
@@ -98,7 +98,7 @@ body{
 }
 
 .sidebar-container{
-  border: solid 2px yellow;
+  border: solid 4px white;
   /* margin-left: auto; */
   width: 300px;
   min-width: 300px;
@@ -130,6 +130,31 @@ body{
   top: 50%;
   animation: zoom-in-zoom-out 2s ease infinite;
   color: gold;
+}
+
+.controls-panel__sub-heading{
+  margin: 2em 0;
+  color: gold;
+}
+
+.controls-arrow{
+  border: pink 2px 0 solid;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 3em;
+}
+
+.controls-arrow__direction{
+  margin-left: 1em;
+}
+
+.how-to-play__text{
+  text-align: justify;
+  text-justify: inter-word;
+  padding: 0 1em 1em 1em;
+  font-size: 0.8rem;
+  font-weight: lighter;
 }
 
 @keyframes zoom-in-zoom-out {
