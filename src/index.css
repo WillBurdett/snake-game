@@ -132,6 +132,31 @@ body{
   color: gold;
 }
 
+.controls-panel__sub-heading{
+  margin: 2em 0;
+  color: gold;
+}
+
+.controls-arrow{
+  border: pink 2px 0 solid;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 3em;
+}
+
+.controls-arrow__direction{
+  margin-left: 1em;
+}
+
+.how-to-play__text{
+  text-align: justify;
+  text-justify: inter-word;
+  padding: 0 1em 1em 1em;
+  font-size: 0.8rem;
+  font-weight: lighter;
+}
+
 @keyframes zoom-in-zoom-out {
   0% {
     transform: scale(1, 1) translateY(-50%);
