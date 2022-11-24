@@ -23,7 +23,7 @@ class App extends Component {
   return (
     <div className="landing-page-container">
         {this.state.isFirstGame ? <OpeningScreen handleStartGame={this.handleStartGame}/> : null}
-        {/* {this.state.isPlaying ? <GameScreen handleGameOver={this.handleGameOver}/> : null} */}
+        {this.state.isPlaying ? <GameScreen handleGameOver={this.handleGameOver}/> : null}
     </div>
     );
   }
