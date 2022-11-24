@@ -2,6 +2,7 @@ import { Component } from "react"
 import GameOver from "../components/GameOver"
 import Gameplay from "../components/Gameplay"
 import Scores from "../components/Scores"
+import SignInScreen from "./SignInScreen";
 
 let didBeatHighscore = false;
 
