@@ -4,7 +4,7 @@ const AccountScreen = ({handleSignInOrUp}) => {
     return(
         <div className="game-area">
             <SignUp/>
-            <button className="sign-in-or-up--btn hover-green basic-font text-center" onClick={handleSignInOrUp}>Back to Main Menu!</button>
+            <button className="start-game--btn hover-green basic-font text-center" onClick={handleSignInOrUp}>Back to Main Menu!</button>
         </div>
     )
 }
