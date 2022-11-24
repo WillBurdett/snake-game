@@ -2,7 +2,7 @@ import { Component } from "react";
 import GameOver from "./components/GameOver";
 import GameScreen from "./routes/GameScreen";
 import OpeningScreen from "./routes/OpeningScreen";
-import SignInScreen from "./routes/SignInScreen";
+import SignInScreen from "./routes/AccountScreen";
 
 class App extends Component {
 

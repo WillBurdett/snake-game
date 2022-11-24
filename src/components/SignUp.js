@@ -8,13 +8,10 @@ const onSubmit = async values => {
   window.alert(JSON.stringify(values, 0, 2))
 }
 
-const SignInScreen = () => {
+const SignUp = () => {
     return(
-        <div className="game-area">
-        <div class="sign-in--container">
-            <div class="sign-in--content basic-font">
-        
-                <h3 className="basic-font text-center">Sign Up if you're new</h3>
+        <div className='basic-font'>
+            <h3 className="text-center">Sign Up if you're new</h3>
                 <Form
                     onSubmit={onSubmit}
                     validate={values => {
@@ -88,11 +85,9 @@ const SignInScreen = () => {
                         <pre>{JSON.stringify(values, 0, 2)}</pre>
                         </form>
                     )}
-                    />
-        </div>
-        </div>
+                />
         </div>
     )
 }
 
-export default SignInScreen
+export default SignUp

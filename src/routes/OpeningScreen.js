@@ -1,6 +1,6 @@
 import Controls from "../components/Controls";
 import TitleAnimation from "../components/TitleAnimation";
-import SignInScreen from "./SignInScreen";
+import SignInScreen from "./AccountScreen";
 
 const OpeningScreen = ({handleStartGame}) => {
 
