@@ -1,7 +1,7 @@
 import Snake from "./Snake";
 import { useState, useEffect } from "react";
 
-const TitleAnimation = ({handleStartGame}) => {
+const TitleAnimation = ({handleStartGame, handleSignInOrUp}) => {
 
 const [openingSnakeDots, setOpeningSnakeDots] = useState([[0,0], [2,0]])
 
@@ -57,6 +57,7 @@ const moveSnake = (dir) => {
                     <Snake snakeDots={openingSnakeDots}/>
                     <h2 className="start-game--title basic-font text-center">Snake</h2>
                     <button className="start-game--btn hover-green basic-font text-center" onClick={handleStartGame}>Start game!</button>
+                    <button className="sign-in-or-up--btn hover-green basic-font text-center" onClick={handleSignInOrUp}>Sign in!</button>
                 </div>
             </div>
         </div>
