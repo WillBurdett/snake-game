@@ -1,14 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Form, Field } from 'react-final-form'
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-const onSubmit = async values => {
-  await sleep(300)
-  window.alert(JSON.stringify(values, 0, 2))
-}
-
 const SignUp = () => {
+
+    const onSubmit = async values => {
+        await sleep(300)
+        window.alert(JSON.stringify(values, 0, 2))
+        await createUser({
+            username: values.username,
+            email: values.email,
+            password: values.password
+        })
+      }
+
+    const [allUsers, setAllUsers] = useState([]);
+
+    const createUser =  async newUser => {
+        fetch("http://localhost:8080/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json", // this block adds our submitted cake to the database
+            },
+            body: JSON.stringify(newUser), // this returns our new book object, so we can .then update the component live
+        })
+            .then((response) => response.json)
+            //.then((data) => setAllUsers([allUsers]))
+            .catch((error) => console.log(error));
+    };
+
     return(
         <div className='basic-font'>
             <h3 className="text-center">Sign Up if you're new</h3>
