@@ -18,7 +18,7 @@ class GameScreen extends Component {
           isPlaying: false,
           isGameOver: true
         })
-        this.getAllUsers()
+        this.getLeaderboard()
       }
     
       handleRestart = () => {
@@ -26,7 +26,7 @@ class GameScreen extends Component {
           isPlaying: true,
           isGameOver: false
         })
-        this.getAllUsers()
+        this.getLeaderboard()
       }
 
       didBeatHighscore = v => {
@@ -35,7 +35,7 @@ class GameScreen extends Component {
       }
       
 
-      getAllUsers = () => {
+      getLeaderboard = () => {
         fetch("http://localhost:8080/leaderboard")
         .then(response => response.json())
         .then(users => {
@@ -50,7 +50,7 @@ class GameScreen extends Component {
         }
 
         componentDidMount(){
-          this.getAllUsers();
+          this.getLeaderboard();
         }
           
       
