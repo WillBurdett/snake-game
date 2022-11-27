@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Form, Field } from 'react-final-form'
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
@@ -15,7 +15,23 @@ const SignUp = () => {
         })
       }
 
-    const [allUsers, setAllUsers] = useState([]);
+    const [allPlayers, setAllPlayers] = useState([]);
+
+    useEffect(() => {
+        const getAllPlayers = () => {
+            fetch("http://localhost:8080/")
+            .then(response => response.json())
+            .then(players => {
+              const newPlayersArray = [];
+              for (const p of players){
+                newPlayersArray.push(p)
+              }
+                setAllPlayers(newPlayersArray)
+              }) 
+            .catch(error => console.error(error))
+            }
+        getAllPlayers()    
+    }, [])
 
     const createUser =  async newUser => {
         fetch("http://localhost:8080/", {
@@ -30,6 +46,15 @@ const SignUp = () => {
             .catch((error) => console.log(error));
     };
 
+    const usernameAlreadyExists = input => {
+        for (let i=0; i<allPlayers.length;i++){
+            if (input === allPlayers[i].username){
+                return true
+            }
+        }
+        return false
+    }
+
     return(
         <div className='basic-font'>
             <h3 className="text-center">Sign Up if you're new</h3>
@@ -39,6 +64,9 @@ const SignUp = () => {
                         const errors = {}
                         if (!values.username) {
                         errors.username = 'Required'
+                        }
+                        if(usernameAlreadyExists(values.username)){
+                        errors.username = 'Username already exists'    
                         }
                         if (!values.email) {
                         errors.email = 'Required'
