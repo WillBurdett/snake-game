@@ -8,14 +8,19 @@ const SignIn = () => {
     const onSubmit = async values => {
         await sleep(300)
         window.alert(JSON.stringify(values, 0, 2))
-        await createUser({
-            username: values.username,
-            email: values.email,
-            password: values.password
-        })
+        // await createUser({
+        //     username: values.username,
+        //     email: values.email,
+        //     password: values.password
+        // })
+        signIn()
       }
 
     const [allPlayers, setAllPlayers] = useState([]);
+
+    const signIn = () => {
+        console.log("signed in successfully")
+    }
 
     useEffect(() => {
         const getAllPlayers = () => {
@@ -33,22 +38,18 @@ const SignIn = () => {
         getAllPlayers()    
     }, [])
 
-    const createUser =  async newUser => {
-        fetch("http://localhost:8080/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json", // this block adds our submitted cake to the database
-            },
-            body: JSON.stringify(newUser), // this returns our new book object, so we can .then update the component live
-        })
-            .then((response) => response.json)
-            //.then((data) => setAllUsers([allUsers]))
-            .catch((error) => console.log(error));
-    };
-
     const usernameExists = input => {
         for (let i=0; i<allPlayers.length;i++){
             if (input === allPlayers[i].username){
+                return true
+            }
+        }
+        return false
+    }
+
+    const passwordIsCorrect = input => {
+        for (let i=0; i<allPlayers.length;i++){
+            if (input === allPlayers[i].password){
                 return true
             }
         }
@@ -70,6 +71,9 @@ const SignIn = () => {
                         }
                         if (!values.password) {
                         errors.password = 'Required'
+                        }
+                        if (!passwordIsCorrect(values.password)){
+                        errors.password = 'Password incorrect'    
                         }
                         return errors
                     }}
