@@ -156,7 +156,7 @@ class Gameplay extends Component {
     const validScore = await this.handleScore()
     // when done, post score to see if it places on the Leaderboard
     if (validScore){
-      await fetch("http://localhost:8080/" + 1 + "/" + this.state.snakeDots.length, {
+      await fetch("http://localhost:8080/" + localStorage.getItem("id") + "/" + this.state.snakeDots.length, {
         method: "POST",
         headers: {
       "Content-Type": "application/json", 
