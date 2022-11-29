@@ -13,10 +13,12 @@ const SignIn = () => {
 
     const [allPlayers, setAllPlayers] = useState([]);
     const [userId, setUserId] = useState(0)
+    const [username, setUsername] = useState(0)
 
     const signIn = () => {
         localStorage.setItem("id", userId)
-        console.log("signed in successfully with ID " + userId)
+        localStorage.setItem("username", username)
+        console.log("signed in successfully with ID " + userId + " and username " + username)
     }
 
     useEffect(() => {
@@ -48,6 +50,7 @@ const SignIn = () => {
         for (let i=0; i<allPlayers.length;i++){
             if (input === allPlayers[i].password){
                 setUserId(allPlayers[i].ID)
+                setUsername(allPlayers[i].username)
                 return true
             }
         }
