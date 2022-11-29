@@ -6,6 +6,7 @@ import AccountScreen from "./AccountScreen";
 const OpeningScreen = ({handleStartGame}) => {
 
   const [isSigningInOrUp, setIsSigningInOrUp] = useState(false)
+  const [hasSignedIn, setHasSignedIn] = useState(false)
   const [showStartScreen, setShowStartScreen] = useState(true)
 
   const handleSignInOrUp = () => {
@@ -13,10 +14,15 @@ const OpeningScreen = ({handleStartGame}) => {
     setShowStartScreen(!showStartScreen)
   }
 
+  const handleHasSignedIn = () => {
+    // render things with and 'signed in as...' component
+    setHasSignedIn(true)
+    console.log("now signed in as " + localStorage.getItem("username"))
+  }
+
   return(
     <div className="content-container">
-      {/* <TitleAnimation handleStartGame={handleStartGame} handleSignInOrUp={handleSignInOrUp}/> */}
-      {isSigningInOrUp ? <AccountScreen handleSignInOrUp={handleSignInOrUp}/> : <TitleAnimation handleStartGame={handleStartGame} handleSignInOrUp={handleSignInOrUp}/> }
+      {isSigningInOrUp ? <AccountScreen handleSignInOrUp={handleSignInOrUp} handleHasSignedIn={handleHasSignedIn}/> : <TitleAnimation hasSignedIn={hasSignedIn} handleStartGame={handleStartGame} handleSignInOrUp={handleSignInOrUp}/> }
       <Controls/>
     </div>
   )
