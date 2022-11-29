@@ -3,7 +3,7 @@ import { Form, Field } from 'react-final-form'
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-const SignIn = () => {
+const SignIn = ({handleSignInOrUp, handleHasSignedIn}) => {
 
     const onSubmit = async values => {
         await sleep(300)
@@ -19,6 +19,9 @@ const SignIn = () => {
         localStorage.setItem("id", userId)
         localStorage.setItem("username", username)
         console.log("signed in successfully with ID " + userId + " and username " + username)
+        // call a function to say you're signed in
+        handleHasSignedIn()
+        handleSignInOrUp()
     }
 
     useEffect(() => {

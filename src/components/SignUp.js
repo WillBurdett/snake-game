@@ -3,7 +3,7 @@ import { Form, Field } from 'react-final-form'
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-const SignUp = () => {
+const SignUp = ({handleSignInOrUp, handleHasSignedIn}) => {
 
     const onSubmit = async values => {
         await sleep(300)
@@ -42,6 +42,8 @@ const SignUp = () => {
             body: JSON.stringify(newUser), // this returns our new book object, so we can .then update the component live
         })
             .then((response) => response.json)
+            .then((h) => handleHasSignedIn())
+            .then((d) => handleSignInOrUp())
             //.then((data) => setAllUsers([allUsers]))
             .catch((error) => console.log(error));
     };
