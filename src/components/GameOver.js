@@ -9,7 +9,7 @@ const GameOver = ({handleRestart, didBeatHighscore}) => {
                      </div>
                      <div className="game-over--score">
                         {didBeatHighscore ? <p className="new-highscore">New Highscore!</p> : null}
-                         <p>You scored <span className="last-score">{JSON.parse(localStorage.getItem('last-score'))}</span> </p>
+                         <p>You scored <span className="last-score green">{JSON.parse(localStorage.getItem('last-score'))}</span> </p>
                      </div>
                     <div onClick={handleRestart} className="restart--container hover-green text-center basic-font">      
                         <h4>Restart  <VscDebugRestart/></h4>            
