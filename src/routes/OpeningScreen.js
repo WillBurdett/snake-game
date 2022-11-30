@@ -23,7 +23,7 @@ const OpeningScreen = ({handleStartGame}) => {
   return(
     <div className="content-container">
       {isSigningInOrUp ? <AccountScreen handleSignInOrUp={handleSignInOrUp} handleHasSignedIn={handleHasSignedIn}/> : <TitleAnimation hasSignedIn={hasSignedIn} handleStartGame={handleStartGame} handleSignInOrUp={handleSignInOrUp}/> }
-      <Controls/>
+      <Controls handleHasSignedIn={handleHasSignedIn}/>
     </div>
   )
  
